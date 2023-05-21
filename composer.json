@@ -1,24 +1,29 @@
 {
-    "name": "zodimo/psr4-for-functions",
-    "description": "Autoloader for namespaced functions",
-    "type": "library",
-    "require": {
-        "php":">=7.4",
-        "composer/composer": "^2.5"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.6"
-    },
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Zodimo\\Psr4ForFunctions\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Jaco Labuschagne",
-            "email": "zodimo@gmail.com"
-        }
-    ]
+  "name": "zodimo/psr4-for-functions",
+  "description": "Autoloader for namespaced functions",
+  "type": "library",
+  "require": {
+    "php": ">=7.4",
+    "composer/composer": "^2.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.6",
+    "symfony/var-dumper": "^6.0"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Zodimo\\Psr4ForFunctions\\": "src/",
+      "MyApp\\": "examples/MyApp"
+    }
+  },
+  "authors": [
+    {
+      "name": "Jaco Labuschagne",
+      "email": "zodimo@gmail.com"
+    }
+  ],
+  "scripts": {
+    "example": "php examples/index.php"
+  }
 }
