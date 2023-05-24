@@ -27,8 +27,7 @@ The Goal of this package is to not have to do this.
 # PSR4
 
 - https://www.php-fig.org/psr/psr-4/
-- 
-
+-
 
 # Problem / Challenge
 
@@ -36,4 +35,33 @@ PHP throws fatal error when function is not found. No handler can be hooked up t
 
 ```text
 PHP Fatal error:  Uncaught Error: Call to undefined function
+```
+
+# Alternative
+
+Knowing that Closures are objects...
+Why not declare each function as a callable class. Leveraging the class autoloader.
+
+```php
+<?php declare(strict_types=1);
+
+namespace MyApp;
+
+class Sum
+{
+    private function __construct()
+    {
+    }
+
+    public static function create(): self
+    {
+        return new self();
+    }
+
+    public function __invoke(int $a, int $b): int
+    {
+        return  $a + $b;
+    }
+
+}
 ```
