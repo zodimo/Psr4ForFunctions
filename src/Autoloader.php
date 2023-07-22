@@ -15,6 +15,4 @@ class Autoloader
             throw new \Exception("Could not register function autoloader");
         }
     }
-
-
 }

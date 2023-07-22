@@ -42,26 +42,13 @@ PHP Fatal error:  Uncaught Error: Call to undefined function
 Knowing that Closures are objects...
 Why not declare each function as a callable class. Leveraging the class autoloader.
 
+# How to use
+- create functions in the functions folder
+- without namespaces
+- filename match function name
+- add phpdoc typehints to for ide support
+
 ```php
-<?php declare(strict_types=1);
 
-namespace MyApp;
-
-class Sum
-{
-    private function __construct()
-    {
-    }
-
-    public static function create(): self
-    {
-        return new self();
-    }
-
-    public function __invoke(int $a, int $b): int
-    {
-        return  $a + $b;
-    }
-
-}
+ 
 ```
