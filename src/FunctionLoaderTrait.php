@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace MyApp;
+namespace Zodimo\Psr4ForFunctions;
 
-trait FunctionLoader
+trait FunctionLoaderTrait
 {
     private static self $instance;
     private static bool $initialized = false;
@@ -18,6 +18,12 @@ trait FunctionLoader
     private function isFunctionLoaded(string $functionName): bool
     {
         return key_exists($functionName, $this->loadedFunctions);
+    }
+
+    private function getFunctionSourcePath(): string
+    {
+        $reflector = new \ReflectionClass($this);
+        return dirname($reflector->getFileName()) . "/functions";
     }
 
     private function prepareFunctionSource(string $code): string
@@ -50,7 +56,7 @@ trait FunctionLoader
         if ($this->isFunctionLoaded($functionName)) {
             return;
         }
-        $functionSource = __DIR__ . "/functions/{$functionName}.php";
+        $functionSource = $this->getFunctionSourcePath() . "/{$functionName}.php";
         $code = $this->prepareFunctionSource(file_get_contents($functionSource));
         //rename function to unique value to avoid collision
         $newFunctionName = $this->generateUniqueFunctionNameFor($functionName);
