@@ -4,7 +4,7 @@ namespace MyApp;
 
 trait FunctionLoader
 {
-    private static Math $instance;
+    private static self $instance;
     private static bool $initialized = false;
 
     /** @var string[] */
@@ -74,7 +74,7 @@ trait FunctionLoader
     public static function __callStatic($name, $arguments)
     {
         if (!static::$initialized) {
-            static::$instance = new Math();
+            static::$instance = new self();
         }
 
         $instance = static::$instance;
