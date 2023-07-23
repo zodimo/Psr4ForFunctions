@@ -60,6 +60,9 @@ class Math
     use FunctionLoaderTrait;
 }
  
+// usage
+$total1 = \MyApp\Math::sum(1, 2);
+echo "Total1: $total1\n";
 ```
 
 
