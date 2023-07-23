@@ -61,3 +61,8 @@ class Math
 }
  
 ```
+
+
+# The good
+- avoids function name collisions
+- separation of code
